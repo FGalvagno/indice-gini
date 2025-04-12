@@ -1,12 +1,17 @@
 import requests
 import ctypes
+from msl.loadlib import Client64
 
-def config_python_wrapper(libname, argtypes, restype):
-    """
-    Configura el wrapper de Python para la librería C."""
-    libwrapper = ctypes.CDLL('./lib/'+libname+'.so') #TODO: CAMBIAR A LA RUTA CORRECTA
-    libwrapper.factorial.argtypes = argtypes    #TODO: VERIFICAR QUE SEAN LOS TIPOS CORRECTOS
-    libwrapper.factorial.restype = restype      #TODO: VERIFICAR QUE SEAN LOS TIPOS CORRECTOS
+class conversion(Client64):
+    """Call a function in 'my_lib.dll' via the 'MyServer' wrapper."""
+
+    def __init__(self):
+        # Specify the name of the Python module to execute on the 32-bit server (i.e., 'my_server')
+        super(conversion, self).__init__(module32='conversion.py')
+    
+    def convert_and_increment(self,n):
+        # The Client64 class has a 'request32' method to send a request to the 32-bit server
+        return self.request32('convert_and_increment', n)
 
 country_code = 'ARG'
 params = {
@@ -27,6 +32,14 @@ print(res)
 print(res.text)
 
 print("Coeficiente de Gini ", res.json()[1][0]['value']) #TODO: CAMBIAR; solo funciona cuando tenemos un solo año
+gini_value = res.json()[1][0]['value']
 
-#libgini = config_python_wrapper('libgini', ctypes.c_float, ctypes.c_uint)
-#gini_value = libgini.gini(gini_value)
+
+lib=conversion()
+print(lib.convert_and_increment(44.7))
+# Creamos nuestra función factorial en Python
+# hace de Wrapper para llamar a la función de C
+#def convertir(num):
+#    return libconversion.converted_and_increment(num)  
+
+#print(convertir(gini_value))
