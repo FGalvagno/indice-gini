@@ -13,15 +13,13 @@ Como parte de la cursada de Sistemas de Computación, se planea utilizar un stac
 
 ```bash
 git clone https://github.com/FGalvagno/indice-gini.git
- cd indice-gini
+cd indice-gini
 ```
 
 2. Instalar las dependencias de Python
-  
-  
-  ```bash
-  pip install -r requirements.txt
-  ```
+```bash
+pip install -r requirements.txt
+```
 3. (Opcional) Si se desean compilar las librerias de C++ y assembler usando make
 
 ```bash
