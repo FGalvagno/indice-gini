@@ -25,7 +25,10 @@ pip install -r requirements.txt
 ```bash
 sudo apt install build-essential nasm gcc-multilib g++-multilib
 ```
-
+4. [Entornos basados en Red-Hat] existe una version alternativa de la libreria de compresion zlib que incorporan los sistemas de proxima generacion, para solucionar problemas de compilacion se instala
+```bash
+sudo dnf install zlib-ng-compat.i686
+```   
 ## Uso
 
 Correr el programa ejecutando app.py
