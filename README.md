@@ -11,10 +11,10 @@ Como parte de la cursada de Sistemas de Computación, se planea utilizar un stac
 
 1. Clona el repositorio:
 
-   ```bash
-   git clone https://github.com/FGalvagno/indice-gini.git
-   cd indice-gini
-
+```bash
+git clone https://github.com/FGalvagno/indice-gini.git
+ cd indice-gini
+```
 
 2. Instalar las dependencias de Python
   
